@@ -22,7 +22,7 @@ class TrieNode {
     }
 }
 
-class Trie {
+public class Trie {
     private TrieNode root;
 
     public Trie() {
@@ -90,7 +90,7 @@ class Trie {
     }
 
     // delete a word from the trie
-    public TrieNode deleteNode(String word, TrieNode node, int index) {
+    private TrieNode deleteNode(String word, TrieNode node, int index) {
        Map<Character, TrieNode> children = node.children; 
 
         if(index == word.length()){
@@ -108,7 +108,7 @@ class Trie {
         TrieNode t;
         if(children.containsKey(word.charAt(index))){
             t = deleteNode(word, children.get(word.charAt(index)), index+1);
-            //remove key from children if t node does not exist anymore
+            //remove key from children if it node does not exist anymore
             if(t == null){
                 children.remove(word.charAt(index));
             }
@@ -120,11 +120,16 @@ class Trie {
          
     }
 
-    private boolean hasChildren( TrieNode t) {
+    public boolean hasChildren( TrieNode t) {
         Map<Character, TrieNode> children = t.children;
         if(children.size() > 0){
             return true;
         }
         return false;
-    }    
+    }
+
+    public int countChildren( TrieNode t) {
+        Map<Character, TrieNode> children = t.children;
+        return children.size();
+    }
 }

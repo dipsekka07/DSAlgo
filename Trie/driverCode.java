@@ -4,15 +4,15 @@ public class driverCode {
         
         // and lower case) 
         String keys[] = { "the", "a", "there", "answer", "any", "by", "bye", "their", "hero", "heroplane" }; 
-        Trie t = new Trie();
+        TrieArrayImp t = new TrieArrayImp();
         for(String s: keys) {
             t.insert(s);
         }
 
-        boolean p = t.search("an");
+        boolean p = t.search("answer");
         boolean pref = t.startsWith("ans");
         t.delete("answer");
-        p = t.search("a");
+        p = t.search("answer");
         pref = t.startsWith("a");
 
     }
